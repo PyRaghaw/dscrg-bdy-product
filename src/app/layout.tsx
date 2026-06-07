@@ -1,26 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "../components/SmoothScroll";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Discharge Buddy — Your Smart Recovery Companion",
-  description: "Upload your hospital discharge summary PDF. AI reads it, extracts medicines, schedules follow-ups, structures your recovery timeline, and answers your questions 24/7.",
+  title: "Discharge Buddy — AI-Powered Recovery Companion",
+  description:
+    "Discharge Buddy turns your confusing hospital prescription into a clear, AI-monitored recovery plan — with smart reminders, real-time alerts for your family, and Beary keeping you on track.",
   openGraph: {
-    title: "Discharge Buddy — Your Smart Recovery Companion",
-    description: "Upload your hospital discharge summary PDF. AI reads it, extracts medicines, schedules follow-ups, structures your recovery timeline, and answers your questions 24/7.",
+    title: "Discharge Buddy — AI-Powered Recovery Companion",
+    description:
+      "Never miss a step in your recovery. Scan prescriptions, auto-schedule medicines, and stay connected with your care circle.",
     type: "website",
-  }
+  },
 };
 
 export default function RootLayout({
@@ -29,16 +33,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
-    >
-      <body className="min-h-full flex flex-col bg-black text-white selection:bg-teal-500/30 selection:text-teal-200">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+    <html lang="en" className={`${bricolage.variable} ${dmSans.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-white text-gray-900 selection:bg-brand/20 selection:text-brand-dark">
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
 }
-

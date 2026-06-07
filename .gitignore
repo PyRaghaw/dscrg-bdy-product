@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+**/node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -15,6 +16,7 @@
 
 # next.js
 /.next/
+**/.next/
 /out/
 
 # production
@@ -44,3 +46,7 @@ next-env.d.ts
 *.mp4
 *.mov
 *.zip
+
+# local clone sandboxes
+test_clone/
+test_clone_backup_dscrg_bdy_product/
