@@ -16,6 +16,7 @@ import { StorySection }         from './StorySection';
 import { TestimonialsSection }  from './TestimonialsSection';
 import { DrugInteractionSection } from './DrugInteractionSection';
 import { ChatbotWidget }        from '@/components/ui/ChatbotWidget';
+import { MeetTheCrew }          from './MeetTheCrew';
 
 export function LandingPage() {
   return (
@@ -38,6 +39,7 @@ export function LandingPage() {
       </main>
       <Footer />
       <ChatbotWidget />
+      <MeetTheCrew />
     </>
   );
 }

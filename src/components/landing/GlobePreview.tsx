@@ -84,7 +84,7 @@ const sampleMarkers: GlobeMarker[] = [
 
 export function GlobePreview() {
   return (
-    <div className="relative mx-auto flex flex-col md:block h-auto md:h-[400px] w-full max-w-7xl overflow-hidden rounded-2xl shadow-2xl pb-8 md:pb-0"
+    <div className="relative mx-auto flex flex-col md:block h-auto md:h-[480px] w-full max-w-7xl overflow-hidden rounded-2xl shadow-2xl pb-8 md:pb-0"
       style={{ background: "linear-gradient(135deg, #0f0f14 0%, #13111f 50%, #0c0e1a 100%)" }}
     >
       {/* Subtle inner glow */}
