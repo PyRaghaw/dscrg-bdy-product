@@ -303,7 +303,7 @@ const DotField = memo<DotFieldProps>(({
       window.removeEventListener('mouseleave', onMouseLeave);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [mounted]);
 
   useEffect(() => {
     rebuildRef.current?.();
