@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import styled from 'styled-components';
 
 interface ProfileCardProps {
   member: {
@@ -18,7 +17,188 @@ interface ProfileCardProps {
 
 const ProfileCard = ({ member }: ProfileCardProps) => {
   return (
-    <StyledWrapper>
+    <div className="profile-card-wrapper">
+      <style>{`
+        .profile-card-wrapper {
+          display: flex;
+          justify-content: center;
+          margin: 1rem 0;
+        }
+
+        .profile-card-wrapper .card {
+          height: 280px;
+          background: white;
+          border-radius: 32px;
+          padding: 3px;
+          position: relative;
+          box-shadow: rgba(109, 93, 252, 0.15) 0px 30px 30px -20px;
+          transition: all 0.5s ease-in-out;
+        }
+
+        .profile-card-wrapper .card .mail {
+          position: absolute;
+          right: 2rem;
+          top: 1.4rem;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          z-index: 4;
+        }
+
+        .profile-card-wrapper .card .mail svg {
+          stroke: #B7AFFF;
+          stroke-width: 3px;
+          transition: stroke 0.3s;
+        }
+
+        .profile-card-wrapper .card .mail svg:hover {
+          stroke: #6D5DFC;
+        }
+
+        .profile-card-wrapper .card .profile-pic {
+          position: absolute;
+          width: calc(100% - 6px);
+          height: calc(100% - 6px);
+          top: 3px;
+          left: 3px;
+          border-radius: 29px;
+          z-index: 1;
+          border: 0px solid #B7AFFF;
+          overflow: hidden;
+          transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+        }
+
+        .profile-card-wrapper .card .profile-pic img {
+          -o-object-fit: cover;
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          -o-object-position: 0px 0px;
+          object-position: 0px 0px;
+          transition: all 0.5s ease-in-out 0s;
+        }
+
+        .profile-card-wrapper .card .bottom {
+          position: absolute;
+          bottom: 3px;
+          left: 3px;
+          right: 3px;
+          background: #8B7FFF;
+          top: 80%;
+          border-radius: 29px;
+          z-index: 2;
+          box-shadow: rgba(109, 93, 252, 0.18) 0px 5px 5px 0px inset;
+          overflow: hidden;
+          transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+        }
+
+        .profile-card-wrapper .card .bottom .content {
+          position: absolute;
+          bottom: 0;
+          left: 1.5rem;
+          right: 1.5rem;
+          height: 160px;
+        }
+
+        .profile-card-wrapper .card .bottom .content .name {
+          display: block;
+          font-size: 1.2rem;
+          color: white;
+          font-weight: bold;
+        }
+
+        .profile-card-wrapper .card .bottom .content .about-me {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.9);
+          margin-top: 0.5rem;
+          line-height: 1.4;
+        }
+
+        .profile-card-wrapper .card .bottom .bottom-bottom {
+          position: absolute;
+          bottom: 1rem;
+          left: 1.5rem;
+          right: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .profile-card-wrapper .card .bottom .bottom-bottom .social-links-container {
+          display: flex;
+          gap: 1rem;
+        }
+
+        .profile-card-wrapper .card .bottom .bottom-bottom .social-links-container svg {
+          height: 20px;
+          fill: white;
+          filter: drop-shadow(0 5px 5px rgba(109, 93, 252, 0.2));
+          transition: all 0.3s;
+        }
+
+        .profile-card-wrapper .card .bottom .bottom-bottom .social-links-container svg:hover {
+          fill: #F4F2FF;
+          transform: scale(1.2);
+        }
+
+        .profile-card-wrapper .card .bottom .bottom-bottom .button {
+          background: white;
+          color: #6D5DFC;
+          border: none;
+          border-radius: 20px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          padding: 0.4rem 0.8rem;
+          box-shadow: rgba(109, 93, 252, 0.2) 0px 5px 5px 0px;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+
+        .profile-card-wrapper .card .bottom .bottom-bottom .button:hover {
+          background: #F4F2FF;
+          color: #6D5DFC;
+          transform: translateY(-2px);
+        }
+
+        .profile-card-wrapper .card:hover {
+          border-top-left-radius: 55px;
+        }
+
+        .profile-card-wrapper .card:hover .bottom {
+          top: 20%;
+          border-radius: 80px 29px 29px 29px;
+          transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+        }
+
+        .profile-card-wrapper .card:hover .profile-pic {
+          width: 100px;
+          height: 100px;
+          aspect-ratio: 1;
+          top: 10px;
+          left: 10px;
+          border-radius: 50%;
+          z-index: 3;
+          border: 5px solid #F4F2FF;
+          box-shadow: rgba(109, 93, 252, 0.18) 0px 5px 5px 0px;
+          transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+        }
+
+        .profile-card-wrapper .card:hover .profile-pic:hover {
+          transform: scale(1.1);
+          border-radius: 0px;
+        }
+
+        .profile-card-wrapper .card:hover .profile-pic img {
+          transform: scale(1.5);
+          object-position: 0px 10px;
+          transition: all 0.5s ease-in-out 0.5s;
+        }
+      `}</style>
+
       <div className="card w-full max-w-sm mx-auto">
         <button className="mail" onClick={() => window.open(member.socials.email, '_blank')}>
           <svg className="lucide lucide-mail" strokeLinejoin="round" strokeLinecap="round" strokeWidth={2} stroke="currentColor" fill="none" viewBox="0 0 24 24" height={24} width={24} xmlns="http://www.w3.org/2000/svg">
@@ -50,187 +230,8 @@ const ProfileCard = ({ member }: ProfileCardProps) => {
           </div>
         </div>
       </div>
-    </StyledWrapper>
+    </div>
   );
 };
-
-const StyledWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0;
-
-  .card {
-    height: 280px;
-    background: white;
-    border-radius: 32px;
-    padding: 3px;
-    position: relative;
-    box-shadow: rgba(109, 93, 252, 0.15) 0px 30px 30px -20px;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .card .mail {
-    position: absolute;
-    right: 2rem;
-    top: 1.4rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 4;
-  }
-
-  .card .mail svg {
-    stroke: #B7AFFF;
-    stroke-width: 3px;
-    transition: stroke 0.3s;
-  }
-
-  .card .mail svg:hover {
-    stroke: #6D5DFC;
-  }
-
-  .card .profile-pic {
-    position: absolute;
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
-    top: 3px;
-    left: 3px;
-    border-radius: 29px;
-    z-index: 1;
-    border: 0px solid #B7AFFF;
-    overflow: hidden;
-    transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
-  }
-
-  .card .profile-pic img {
-    -o-object-fit: cover;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    -o-object-position: 0px 0px;
-    object-position: 0px 0px;
-    transition: all 0.5s ease-in-out 0s;
-  }
-
-  .card .bottom {
-    position: absolute;
-    bottom: 3px;
-    left: 3px;
-    right: 3px;
-    background: #8B7FFF;
-    top: 80%;
-    border-radius: 29px;
-    z-index: 2;
-    box-shadow: rgba(109, 93, 252, 0.18) 0px 5px 5px 0px inset;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  }
-
-  .card .bottom .content {
-    position: absolute;
-    bottom: 0;
-    left: 1.5rem;
-    right: 1.5rem;
-    height: 160px;
-  }
-
-  .card .bottom .content .name {
-    display: block;
-    font-size: 1.2rem;
-    color: white;
-    font-weight: bold;
-  }
-
-  .card .bottom .content .about-me {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-top: 0.5rem;
-    line-height: 1.4;
-  }
-
-  .card .bottom .bottom-bottom {
-    position: absolute;
-    bottom: 1rem;
-    left: 1.5rem;
-    right: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .card .bottom .bottom-bottom .social-links-container {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .card .bottom .bottom-bottom .social-links-container svg {
-    height: 20px;
-    fill: white;
-    filter: drop-shadow(0 5px 5px rgba(109, 93, 252, 0.2));
-    transition: all 0.3s;
-  }
-
-  .card .bottom .bottom-bottom .social-links-container svg:hover {
-    fill: #F4F2FF;
-    transform: scale(1.2);
-  }
-
-  .card .bottom .bottom-bottom .button {
-    background: white;
-    color: #6D5DFC;
-    border: none;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.4rem 0.8rem;
-    box-shadow: rgba(109, 93, 252, 0.2) 0px 5px 5px 0px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .card .bottom .bottom-bottom .button:hover {
-    background: #F4F2FF;
-    color: #6D5DFC;
-    transform: translateY(-2px);
-  }
-
-  .card:hover {
-    border-top-left-radius: 55px;
-  }
-
-  .card:hover .bottom {
-    top: 20%;
-    border-radius: 80px 29px 29px 29px;
-    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
-  }
-
-  .card:hover .profile-pic {
-    width: 100px;
-    height: 100px;
-    aspect-ratio: 1;
-    top: 10px;
-    left: 10px;
-    border-radius: 50%;
-    z-index: 3;
-    border: 5px solid #F4F2FF;
-    box-shadow: rgba(109, 93, 252, 0.18) 0px 5px 5px 0px;
-    transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
-  }
-
-  .card:hover .profile-pic:hover {
-    transform: scale(1.1);
-    border-radius: 0px;
-  }
-
-  .card:hover .profile-pic img {
-    transform: scale(1.5);
-    object-position: 0px 10px;
-    transition: all 0.5s ease-in-out 0.5s;
-  }
-`;
 
 export default ProfileCard;
