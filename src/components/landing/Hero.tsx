@@ -1,10 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from './ui/Button';
 import { MeddyAppPhone } from './MeddyAppPhone';
 import { RobotMeddy } from './RobotMeddy';
-import ShapeGrid from '@/components/ui/ShapeGrid';
+import { HoverRevealHeading } from './ui/HoverRevealHeading';
+import Particles from '@/components/ui/Particles';
 
 const fly = (delay: number) => ({
   initial: { opacity: 0, y: 28 },
@@ -13,6 +14,9 @@ const fly = (delay: number) => ({
 });
 
 export function Hero() {
+  const { scrollY } = useScroll();
+  // Parallax translation: translates up to -120px as user scrolls 1000px
+  const yParallax = useTransform(scrollY, [0, 1000], [0, -120]);
   return (
     <div className="relative overflow-hidden w-full">
       {/* ── Animated mesh background ── */}
@@ -27,19 +31,25 @@ export function Hero() {
           animation: 'gradient-shift 10s ease infinite',
         }}
       />
-      
-      {/* Dynamic Interactive ShapeGrid Background */}
-      <div className="absolute inset-0 -z-10 opacity-40 pointer-events-none">
-        <ShapeGrid 
-          shape="hexagon" 
-          squareSize={48} 
-          borderColor="rgba(92, 96, 245, 0.12)" 
-          hoverFillColor="rgba(92, 96, 245, 0.08)"
-          speed={0.4}
-          direction="diagonal"
-          hoverTrailAmount={6}
+
+      {/* Interactive WebGL Particles Background */}
+      <div className="absolute inset-0 -z-10 pointer-events-none opacity-100">
+        <Particles
+          particleCount={1200}
+          particleSpread={8.5}
+          speed={0.07}
+          particleColors={['#5c60f5', '#7c3aed', '#c084fc', '#818cf8', '#6366f1']}
+          moveParticlesOnHover={true}
+          particleHoverFactor={1.4}
+          alphaParticles={true}
+          particleBaseSize={240}
+          sizeRandomness={0.6}
+          cameraDistance={18}
         />
       </div>
+
+      {/* Soft Diffusion Layer */}
+      <div className="absolute inset-0 -z-10 pointer-events-none backdrop-blur-[5px] bg-white/10" />
 
       {/* Premium Side & Bottom Border lines with Gradient Glows */}
       <div className="absolute inset-y-0 left-4 md:left-12 h-full w-px bg-neutral-200/50 pointer-events-none">
@@ -67,7 +77,11 @@ export function Hero() {
           </motion.div>
 
           {/* Headline with split word animation */}
-          <h1 className="font-[family-name:var(--font-bricolage)] text-[clamp(46px,5.8vw,80px)] font-black leading-[1.0] tracking-[-0.045em] text-gray-900 mb-6">
+          <HoverRevealHeading
+            as="h1"
+            imageSrc="https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=600&auto=format&fit=crop"
+            className="font-[family-name:var(--font-bricolage)] text-[clamp(46px,5.8vw,80px)] font-black leading-[1.0] tracking-[-0.045em] text-gray-900 mb-6"
+          >
             {"Recovery starts"
               .split(" ")
               .map((word, index) => (
@@ -116,14 +130,14 @@ export function Hero() {
             >
               stop.
             </motion.span>
-          </h1>
+          </HoverRevealHeading>
 
           {/* Sub */}
           <motion.p
             {...fly(0.16)}
-            className="text-[clamp(16px,1.5vw,20px)] text-gray-500 leading-[1.7] font-light mb-10 max-w-[500px] max-lg:mx-auto"
+            className="text-[clamp(16px,1.5vw,20px)] text-slate-700 leading-[1.7] font-medium mb-10 max-w-[500px] max-lg:mx-auto"
           >
-            Discharge Buddy turns confusing hospital paperwork into a clear,
+            VANI turns confusing hospital paperwork into a clear,
             AI-monitored recovery plan — with smart reminders, real-time family
             alerts, and a companion that celebrates every win.
           </motion.p>
@@ -134,8 +148,9 @@ export function Hero() {
             className="flex gap-3 flex-wrap max-lg:justify-center mb-10"
           >
             <Button href="#download" variant="primary-lg">
-              📲 Download Free · No credit card
+              {`  Download Free · No credit card`}
             </Button>
+
             <Button href="#story" variant="outline-lg">
               See how it works →
             </Button>
@@ -150,7 +165,6 @@ export function Hero() {
               { icon: '🔒', text: 'HIPAA-ready' },
               { icon: '⭐', text: 'Free forever' },
               { icon: '🌐', text: 'Works offline' },
-              { icon: '🏆', text: 'Google Solution Challenge 2026' },
             ].map((b, i) => (
               <div key={b.text} className="flex items-center gap-5">
                 {i > 0 && <div className="w-px h-3.5 bg-gray-200 max-lg:hidden" />}
@@ -168,17 +182,19 @@ export function Hero() {
           initial={{ opacity: 0, y: 32, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative flex justify-center pb-12 lg:pb-20"
+          className="relative flex justify-center pb-12 lg:pb-20 w-full"
         >
-          <motion.div
-            initial={{ opacity: 0, x: 80, rotate: 8 }}
-            animate={{ opacity: 1, x: 0, rotate: 0 }}
-            transition={{ duration: 1.1, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-none absolute -right-6 top-1/2 z-20 hidden -translate-y-1/2 lg:block"
-          >
-            <RobotMeddy size="lg" className="animate-mascot-drift" />
+          <motion.div style={{ y: yParallax }} className="relative w-full flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: 80, rotate: 8 }}
+              animate={{ opacity: 1, x: 0, rotate: 0 }}
+              transition={{ duration: 1.1, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              className="pointer-events-none absolute -right-6 top-1/2 z-20 hidden -translate-y-1/2 lg:block"
+            >
+              <RobotMeddy size="lg" className="animate-mascot-drift" />
+            </motion.div>
+            <MeddyAppPhone />
           </motion.div>
-          <MeddyAppPhone />
         </motion.div>
       </section>
     </div>

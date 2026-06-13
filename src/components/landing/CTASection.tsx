@@ -1,6 +1,7 @@
 'use client';
 
 import { Reveal } from './ui/Reveal';
+import { HoverRevealHeading } from './ui/HoverRevealHeading';
 
 function AppleIcon() {
   return (
@@ -49,11 +50,16 @@ export function CTASection() {
             </div>
 
             {/* Headline */}
-            <h2 className="relative z-10 font-[family-name:var(--font-bricolage)] text-[clamp(34px,5vw,68px)] font-black tracking-[-0.04em] text-white leading-[1.03] mb-5">
+            <HoverRevealHeading
+              as="h2"
+              dark={true}
+              imageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop"
+              className="relative z-10 font-[family-name:var(--font-bricolage)] text-[clamp(34px,5vw,68px)] font-black tracking-[-0.04em] text-white leading-[1.03] mb-5"
+            >
               Start your smarter
               <br />
               recovery today.
-            </h2>
+            </HoverRevealHeading>
 
             <p className="relative z-10 text-[clamp(15px,1.5vw,19px)] text-white/65 max-w-[440px] mx-auto leading-[1.7] font-light mb-12">
               Join 2,400+ patients, families, and clinicians who've already taken the guesswork out of recovery.

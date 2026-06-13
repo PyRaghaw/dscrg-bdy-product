@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FileText, Search } from 'lucide-react';
 import { MeddyAppPhone } from './MeddyAppPhone';
 import { SectionHeader } from './ui/SectionHeader';
+import { HoverRevealHeading } from './ui/HoverRevealHeading';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -25,7 +26,7 @@ export function StorySection() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top top',
-            end: '+=5200',
+            end: '+=6200',
             scrub: 0.9,
             pin: true,
             anticipatePin: 1,
@@ -64,7 +65,14 @@ export function StorySection() {
           .to('.story-app-timeline', { opacity: 1, x: 18, y: -12, scale: 0.93, rotate: 2, filter: 'blur(0px)', duration: 1 }, '<+0.08')
           .to('.story-app-chat', { opacity: 1, x: 175, y: 30, scale: 0.78, rotate: 10, filter: 'blur(0px)', duration: 1 }, '<+0.16')
           .to('.story-scene-5', { opacity: 0, y: -34, filter: 'blur(8px)', duration: 0.8 }, '<')
-          .to('.story-scene-6', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8 }, '<+0.2');
+          .to('.story-scene-6', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8 }, '<+0.2')
+
+          .to('.story-app-meds', { opacity: 0, y: -70, scale: 0.62, filter: 'blur(8px)', duration: 0.7 }, '+=0.35')
+          .to('.story-app-timeline', { opacity: 0.22, x: -180, y: 36, scale: 0.72, rotate: -13, filter: 'blur(4px)', duration: 0.8 }, '<')
+          .to('.story-app-chat', { opacity: 0.24, x: -15, y: -30, scale: 0.76, rotate: -3, filter: 'blur(5px)', duration: 0.8 }, '<')
+          .to('.story-app-sos', { opacity: 1, x: 85, y: 6, scale: 1, rotate: 5, filter: 'blur(0px)', duration: 1 }, '<+0.08')
+          .to('.story-scene-6', { opacity: 0, y: -34, filter: 'blur(8px)', duration: 0.8 }, '<')
+          .to('.story-scene-7', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8 }, '<+0.2');
 
         return () => tl.kill();
       });
@@ -92,10 +100,10 @@ export function StorySection() {
                 <>
                   From prescription to
                   <br />
-                  <span className="text-brand">full recovery</span> — in four steps.
+                  <span className="text-brand">full recovery</span> — in five steps.
                 </>
               }
-              subtitle="Scroll the flow. The hospital paperwork becomes a real app plan, then the phone mockups move through scan, medicine list, roadmap, and Mr. Meddy support."
+              subtitle="Scroll the flow. The hospital paperwork becomes a real app plan, then the phone mockups move through scan, medicine list, roadmap, Mr. Meddy support, and SOS emergency assistance."
             />
           </div>
 
@@ -137,6 +145,12 @@ export function StorySection() {
                 title: 'Roadmap plus Mr. Meddy support.',
                 body: 'Patients see the day-by-day recovery path and can ask Mr. Meddy questions when anxiety hits.',
               },
+              {
+                className: 'story-scene-7',
+                tag: '07 / Emergency',
+                title: 'SOS & Emergency Assistance',
+                body: 'Instant access to emergency support when urgent help is needed. Users can trigger an SOS alert, notify family members and caregivers, share their live location, and access critical medical information during emergencies.',
+              },
             ].map((scene) => (
               <div
                 key={scene.className}
@@ -145,9 +159,13 @@ export function StorySection() {
                 <span className="mb-3 block text-xs font-bold uppercase tracking-[0.24em] text-brand">
                   {scene.tag}
                 </span>
-                <h3 className="font-[family-name:var(--font-bricolage)] text-[clamp(32px,4.2vw,58px)] font-black leading-[1.02] tracking-tight text-slate-950">
+                <HoverRevealHeading
+                  as="h3"
+                  imageSrc="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&auto=format&fit=crop"
+                  className="font-[family-name:var(--font-bricolage)] text-[clamp(32px,4.2vw,58px)] font-black leading-[1.02] tracking-tight text-slate-950"
+                >
                   {scene.title}
-                </h3>
+                </HoverRevealHeading>
                 <p className="mt-5 text-[clamp(15px,1.35vw,19px)] font-light leading-relaxed text-slate-600">
                   {scene.body}
                 </p>
@@ -178,11 +196,14 @@ export function StorySection() {
             <div className="story-ui story-app-chat absolute left-[210px] top-[40px] z-20">
               <MeddyAppPhone activeScreen="chat" autoPlay={false} showMascotCard={false} className="[&>div]:!animate-none" />
             </div>
+            <div className="story-ui story-app-sos absolute left-[210px] top-[40px] z-50">
+              <MeddyAppPhone activeScreen="sos" autoPlay={false} showMascotCard={false} className="[&>div]:!animate-none" />
+            </div>
           </div>
         </div>
 
         <div className="flex flex-col gap-10 px-5 pb-20 md:hidden">
-          {(['import', 'scan', 'meds', 'timeline'] as const).map((screen) => (
+          {(['import', 'scan', 'meds', 'timeline', 'chat', 'sos'] as const).map((screen) => (
             <MeddyAppPhone key={screen} activeScreen={screen} autoPlay={false} showMascotCard={false} />
           ))}
         </div>

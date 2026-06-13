@@ -50,3 +50,7 @@ next-env.d.ts
 # local clone sandboxes
 test_clone/
 test_clone_backup_dscrg_bdy_product/
+
+# raw assets and media frames
+/assets/
+/extracted_frames/

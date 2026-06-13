@@ -52,7 +52,7 @@ function Stat({ value, label, delay }: { value: string; label: string; delay: nu
         {display}
       </div>
       <div className="w-6 h-[2px] mx-auto mb-3 rounded-full bg-white/20" />
-      <div className="text-[12px] text-white/45 max-w-[130px] leading-snug tracking-wide">{label}</div>
+      <div className="text-[12px] text-white/45 max-w-[130px] mx-auto leading-snug tracking-wide text-center">{label}</div>
     </div>
   );
 }

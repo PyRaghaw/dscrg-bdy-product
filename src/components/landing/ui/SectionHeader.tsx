@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { HoverRevealHeading } from './HoverRevealHeading';
 
 interface SectionHeaderProps {
   eyebrow: string;
@@ -38,14 +39,17 @@ export function SectionHeader({
       </div>
 
       {/* Headline */}
-      <h2
+      <HoverRevealHeading
+        as="h2"
         className={cn(
           'font-[family-name:var(--font-bricolage)] text-[clamp(32px,4vw,56px)] font-black leading-[1.06] tracking-[-0.035em]',
           dark ? 'text-white' : 'text-gray-900'
         )}
+        dark={dark}
+        imageSrc="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&auto=format&fit=crop"
       >
         {title}
-      </h2>
+      </HoverRevealHeading>
 
       {/* Subtitle */}
       {subtitle && (

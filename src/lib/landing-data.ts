@@ -17,9 +17,9 @@ export const SCREENSHOTS = {
 
 /* ── Stats strip ──────────────────────────────────────── */
 export const PROOF_STATS = [
-  { value: "50%",  label: "of patients can't recall discharge instructions by the time they reach home" },
-  { value: "25%",  label: "of readmissions within 30 days are entirely preventable" },
-  { value: "$290B",label: "lost annually to medication non-adherence in the US alone" },
+  { value: "60%",  label: "of Indian patients can't recall discharge instructions by the time they reach home" },
+  { value: "30%",  label: "of hospital readmissions in India within 30 days are entirely preventable" },
+  { value: "₹3.5L Cr", label: "lost annually in India to medication non-adherence and poor post-care" },
   { value: "98%",  label: "prescription-scan accuracy using our multi-model AI pipeline" },
 ] as const;
 
@@ -36,22 +36,22 @@ export const PARTNER_LOGOS = [
 /* ── Problem cards ────────────────────────────────────── */
 export const PROBLEM_CARDS = [
   {
-    stat: "50%",
+    stat: "60%",
     icon: "🧠",
     title: "Patients forget everything",
-    desc: "Half of all patients cannot accurately recall their doctor's discharge instructions by the time they get home. Medical jargon, the stress of leaving, and information overload make it nearly impossible.",
+    desc: "60% of Indian patients cannot accurately recall their doctor's discharge instructions by the time they reach home. Language barriers, health literacy gaps, and information overload make it nearly impossible.",
   },
   {
-    stat: "25%",
+    stat: "30%",
     icon: "🏥",
     title: "Readmissions are preventable",
-    desc: "One in four patients is readmitted within 30 days — not because their condition worsened, but because of missed doses, skipped follow-ups, and zero post-discharge support.",
+    desc: "Nearly 1 in 3 patients in India is readmitted within 30 days — not because their condition worsened, but because of missed doses, skipped follow-ups, and zero post-discharge support.",
   },
   {
-    stat: "$290B",
+    stat: "₹3.5L Cr",
     icon: "💊",
     title: "Non-adherence is a crisis",
-    desc: "Patients not following their medication plan correctly costs the US healthcare system $290 billion every year. This is not a rounding error. It is a systemic failure we are here to fix.",
+    desc: "India loses an estimated ₹3.5 lakh crore every year to medication non-adherence and poor post-care management. This is not a rounding error — it is a systemic failure we are here to fix.",
   },
 ] as const;
 
@@ -117,6 +117,21 @@ export const STORY_STEPS = [
     screenshot: "/screenshots/symptoms.jpg",
     flip: true,
   },
+  {
+    number: "5",
+    label: "SOS",
+    title: "SOS & Emergency Assistance",
+    description:
+      "Instant access to emergency support when urgent help is needed. Users can trigger an SOS alert, notify family members and caregivers, share their live location, and access critical medical information during emergencies.",
+    bullets: [
+      "Trigger instant SOS alert in one tap",
+      "Auto-notify family, caregivers & emergency services",
+      "Share real-time GPS location tracking",
+      "Instant access to digital medical summary",
+    ],
+    screenshot: "/screenshots/symptoms.jpg",
+    flip: false,
+  },
 ] as const;
 
 /* ── Feature grid ─────────────────────────────────────── */
@@ -125,43 +140,43 @@ export const FEATURES = [
     icon: "📷",
     iconBg: "bg-brand-light",
     title: "Smart OCR Scanner",
-    desc: "NVIDIA Nemotron + Groq Llama 3.3 digitize any prescription — handwritten or printed — with 98% accuracy. No typing needed.",
+    desc: "NVIDIA + Groq powered scanner digitizes handwritten or printed prescriptions into structured medicine schedules instantly.",
     tag: "AI-Powered",
   },
   {
-    icon: "⏰",
+    icon: "🎙️",
     iconBg: "bg-sage-100",
-    title: "Auto Scheduling",
-    desc: "Medical frequency codes like OD, TDS, and BD convert to exact, personalised daily reminders. Zero guesswork, ever.",
-    tag: "Smart Reminders",
+    title: "Voice-First Assistant",
+    desc: "Speak naturally in 14+ languages to log medicines, report symptoms, send voice notes, or trigger help.",
+    tag: "Multilingual AI",
   },
   {
     icon: "🧠",
     iconBg: "bg-amber-50",
-    title: "Jargon Translator",
-    desc: "Claude 3.5 Sonnet converts dense medical discharge documents into clear, simple language that anyone can understand.",
+    title: "Plain Language Explainer",
+    desc: "AI converts complex medical reports and discharge summaries into simple, easy-to-understand language.",
     tag: "Plain Language",
   },
   {
     icon: "🚨",
     iconBg: "bg-rose-500/10",
     title: "Live Risk Monitor",
-    desc: "Caregivers see a live risk score per patient. Missed doses and symptom flags trigger instant push notifications.",
-    tag: "Real-Time",
-  },
-  {
-    icon: "🐻",
-    iconBg: "bg-brand-light",
-    title: "Gamified Recovery",
-    desc: "Earn XP, build streaks, and watch Beary evolve alongside your recovery. Healthy habits feel genuinely rewarding.",
-    tag: "Engagement",
+    desc: "Real-time symptom and medication monitoring with AI risk scoring and instant caregiver alerts.",
+    tag: "Real-Time Alerts",
   },
   {
     icon: "🆘",
     iconBg: "bg-blue-50",
-    title: "One-Tap SOS",
-    desc: "A single tap sends your GPS location and digital medical card to all emergency contacts. For when every second matters.",
-    tag: "Safety",
+    title: "Smart SOS & Emergency Response",
+    desc: "Multi-trigger SOS (Voice / Shake / Tap) with AI incident summary, live location & medical profile sharing.",
+    tag: "Emergency Hub",
+  },
+  {
+    icon: "📴",
+    iconBg: "bg-emerald-100",
+    title: "Offline Emergency Mode",
+    desc: "Full SOS, first-aid guidance, and location sharing works even without internet connectivity.",
+    tag: "Offline-Ready",
   },
 ] as const;
 
@@ -259,7 +274,7 @@ export const ROLES = [
 export const TESTIMONIALS = [
   {
     quote:
-      "After my knee surgery I was overwhelmed by my discharge papers. Discharge Buddy scanned my prescription in seconds and gave me a clear daily schedule. I never missed a single dose.",
+      "After my knee surgery I was overwhelmed by my discharge papers. VANI scanned my prescription in seconds and gave me a clear daily schedule. I never missed a single dose.",
     initials: "RP",
     name: "Rahul P.",
     role: "Post-surgery patient, Delhi",

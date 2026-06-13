@@ -56,7 +56,7 @@ export function Navbar({ hasBar = true }: { hasBar?: boolean }) {
               </div>
             </div>
             <span className="font-[family-name:var(--font-bricolage)] text-[18px] font-black text-gray-900 whitespace-nowrap tracking-tight">
-              Discharge Buddy
+              VANI
             </span>
           </a>
 
@@ -94,7 +94,7 @@ export function Navbar({ hasBar = true }: { hasBar?: boolean }) {
             </a>
             <a
               href="#download"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-bold text-white btn-shimmer shadow-[0_4px_16px_rgba(92,96,245,0.4)] hover:shadow-[0_6px_24px_rgba(92,96,245,0.55)] hover:-translate-y-px transition-all duration-200"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-[12px] sm:text-[13px] font-extrabold text-white btn-shimmer shadow-[0_4px_16px_rgba(92,96,245,0.35)] hover:shadow-[0_6px_24px_rgba(92,96,245,0.5)] hover:-translate-y-px transition-all duration-200 shrink-0"
             >
               Get the App
             </a>

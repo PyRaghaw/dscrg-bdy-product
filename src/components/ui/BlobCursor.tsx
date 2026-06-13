@@ -28,7 +28,7 @@ export interface BlobCursorProps {
 
 export default function BlobCursor({
   blobType = 'circle',
-  fillColor = 'rgba(92, 96, 245, 0.45)', // Discharge Buddy premium brand violet with transparency
+  fillColor = 'rgba(92, 96, 245, 0.45)', // VANI premium brand violet with transparency
   trailCount = 3,
   sizes = [80, 140, 95],
   innerSizes = [25, 40, 30],
@@ -46,8 +46,8 @@ export default function BlobCursor({
   slowDuration = 0.5,
   fastEase = 'power3.out',
   slowEase = 'power1.out',
-  zIndex = 1
-}: BlobCursorProps) {
+  zIndex = 999999
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const blobsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -117,7 +117,7 @@ export default function BlobCursor({
     <div
       ref={containerRef}
       className="fixed inset-0 pointer-events-none w-full h-full overflow-hidden"
-      style={{ zIndex }}
+      style={{ zIndex, isolation: 'isolate' }}
     >
       {useFilter && (
         <svg className="absolute w-0 h-0">

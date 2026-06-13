@@ -3,20 +3,24 @@
 import { useEffect, useState } from 'react';
 import {
   Activity,
+  AlertTriangle,
   Camera,
   Check,
   ChevronRight,
   Clock,
   FileText,
+  Heart,
   Home,
+  MapPin,
   Sparkles,
   Upload,
   Volume2,
+  Zap,
 } from 'lucide-react';
 import { PhoneFrame } from './ui/PhoneFrame';
 import { RobotMeddy } from './RobotMeddy';
 
-export const meddyScreens = ['import', 'scan', 'meds', 'timeline', 'chat'] as const;
+export const meddyScreens = ['import', 'scan', 'meds', 'timeline', 'chat', 'sos'] as const;
 export type DemoScreen = (typeof meddyScreens)[number];
 
 const labels: Record<DemoScreen, string> = {
@@ -25,6 +29,7 @@ const labels: Record<DemoScreen, string> = {
   meds: 'Care',
   timeline: 'Roadmap',
   chat: 'Meddy AI',
+  sos: 'SOS',
 };
 
 interface MeddyAppPhoneProps {
@@ -91,14 +96,17 @@ export function MeddyAppPhone({
           <PhoneScreen active={currentScreen} name="chat">
             <ChatScreen />
           </PhoneScreen>
+          <PhoneScreen active={currentScreen} name="sos">
+            <SosScreen />
+          </PhoneScreen>
 
-          <div className="absolute bottom-3 left-4 right-4 z-40 grid grid-cols-5 gap-1 rounded-2xl border border-white/70 bg-white/90 p-1.5 shadow-lg backdrop-blur">
+          <div className="absolute bottom-3 left-4 right-4 z-40 grid grid-cols-6 gap-0.5 rounded-2xl border border-white/70 bg-white/90 p-1 py-1.5 shadow-lg backdrop-blur">
             {meddyScreens.map((screen) => (
               <button
                 key={screen}
                 type="button"
                 onClick={() => setInternalScreen(screen)}
-                className={`rounded-xl px-1 py-1.5 text-[8px] font-black transition-colors ${
+                className={`rounded-xl px-0.5 py-1 text-[8px] font-black transition-colors ${
                   currentScreen === screen ? 'bg-brand text-white' : 'text-slate-400 hover:bg-brand-light hover:text-brand'
                 }`}
               >
@@ -358,6 +366,122 @@ function ChatScreen() {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function SosScreen() {
+  return (
+    <div className="flex h-full flex-col justify-between bg-slate-50 pb-20">
+      {/* Header with gradient */}
+      <div className="bg-gradient-to-r from-brand to-indigo-600 px-4 pb-4 pt-3 text-white rounded-b-[24px]">
+        <div className="flex items-center gap-2">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20">
+            <ChevronRight className="h-3.5 w-3.5 rotate-180 text-white" />
+          </div>
+          <div className="text-left">
+            <h4 className="font-[family-name:var(--font-bricolage)] text-[14px] font-black leading-tight">Emergency</h4>
+            <span className="block text-[8px] text-white/80">Immediate help and contacts</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main content body */}
+      <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
+        {/* Emergency Alert Card */}
+        <div className="rounded-2xl border border-red-100 bg-red-50/70 p-3 text-center shadow-sm">
+          <h5 className="text-[11px] font-black text-red-600">Emergency Alert</h5>
+          <p className="mt-1 text-[8px] leading-tight text-slate-500 max-w-[180px] mx-auto">
+            Press and hold to notify your caregiver and share your location
+          </p>
+
+          {/* SOS button with overlapping pulse rings */}
+          <div className="relative my-3 flex justify-center">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-14 w-14 animate-ping rounded-full bg-red-500/20 duration-1000" />
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-18 w-18 animate-ping rounded-full bg-red-500/10 duration-2000" />
+            </div>
+
+            <button
+              type="button"
+              className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-red-500 text-white shadow-lg shadow-red-500/30 transition-transform active:scale-95 animate-pulse"
+            >
+              <AlertTriangle className="h-5 w-5" />
+            </button>
+          </div>
+          <span className="text-[7px] font-bold uppercase tracking-wider text-red-600">Emergency Alert</span>
+        </div>
+
+        {/* Action List items */}
+        <div className="space-y-2">
+          {/* CPR & Choking Guide */}
+          <div className="flex items-center justify-between rounded-xl border border-slate-100 bg-white p-2 shadow-sm hover:bg-slate-50 cursor-pointer">
+            <div className="flex items-center gap-2 text-left">
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-red-50 text-red-500">
+                <Heart className="h-4 w-4" />
+              </div>
+              <div>
+                <span className="block text-[8px] font-black text-red-600">CPR & Choking Guide</span>
+                <span className="text-[6.5px] text-slate-400">Voice-guided CPR with a live compression timer</span>
+              </div>
+            </div>
+            <ChevronRight className="h-3 w-3 text-slate-300" />
+          </div>
+
+          {/* Smart Emergency Button */}
+          <div className="flex items-center justify-between rounded-xl border border-slate-100 bg-white p-2 shadow-sm hover:bg-slate-50 cursor-pointer">
+            <div className="flex items-center gap-2 text-left">
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-purple-50 text-purple-600">
+                <Zap className="h-4 w-4" />
+              </div>
+              <div>
+                <span className="block text-[8px] font-black text-purple-600">Smart Emergency Button</span>
+                <span className="text-[6.5px] text-slate-400">Shake or tap 5x to instantly call for help</span>
+              </div>
+            </div>
+            <ChevronRight className="h-3 w-3 text-slate-300" />
+          </div>
+
+          {/* Location-sharing indicator & Notified Caregivers */}
+          <div className="rounded-xl border border-slate-100 bg-white p-2 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-left">
+                <div className="relative flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+                  <MapPin className="h-4 w-4" />
+                  <span className="absolute -right-0.5 -top-0.5 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                </div>
+                <div>
+                  <span className="block text-[8px] font-black text-emerald-600">Sharing Live Location</span>
+                  <span className="text-[6.5px] text-slate-400">Caregivers notified in real-time</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-1 bg-emerald-50 text-emerald-700 px-1.5 py-0.5 rounded-full text-[6px] font-bold">
+                <span className="h-1 w-1 rounded-full bg-emerald-500 animate-pulse-dot" />
+                Active
+              </div>
+            </div>
+
+            {/* Notify family members flow indicator */}
+            <div className="mt-2 border-t border-slate-50 pt-2 flex items-center justify-between">
+              <div className="flex -space-x-1.5 overflow-hidden">
+                {['👩‍👧', '🧑‍⚕️', '👨‍👩‍👦'].map((emoji, i) => (
+                  <div key={i} className="inline-block h-4.5 w-4.5 rounded-full border border-white bg-slate-100 text-[10px] text-center leading-none flex items-center justify-center shadow-xs">
+                    {emoji}
+                  </div>
+                ))}
+              </div>
+              <span className="text-[6.5px] font-bold text-slate-400 animate-pulse">Family alerted & responding...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <BottomNav active="meds" />
     </div>
   );
 }

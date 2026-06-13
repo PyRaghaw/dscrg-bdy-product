@@ -42,7 +42,7 @@ export function AISection() {
                 <span className="gradient-text">connected live.</span>
               </>
             }
-            subtitle="Discharge Buddy links the patient, daughter, caregiver, doctor, mom, and dad through one AI-assisted recovery network. Every alert, medicine, symptom, and timeline update moves to the right person."
+            subtitle="VANI links the patient, daughter, caregiver, doctor, mom, and dad through one AI-assisted recovery network. Every alert, medicine, symptom, and timeline update moves to the right person."
           />
 
           <div className="mt-9 flex flex-wrap gap-2">

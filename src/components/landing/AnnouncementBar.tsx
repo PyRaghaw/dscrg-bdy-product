@@ -30,7 +30,7 @@ export function AnnouncementBar() {
           🏆 New
         </span>
         <span>
-          We won <strong>Google Solution Challenge 2026.</strong> Thank you to our 2,400+ beta users.
+          <strong>Eliminate the guesswork of recovery.</strong> Keep your entire care circle perfectly synced in real-time.
         </span>
         <a
           href="#download"
