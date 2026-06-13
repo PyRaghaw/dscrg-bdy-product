@@ -130,13 +130,13 @@ function FamilyCareNetwork() {
         />
       </svg>
 
-      <div className="absolute left-1/2 top-1/2 z-20 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-brand/40 bg-brand/15 shadow-[0_0_70px_rgba(92,96,245,0.36)] backdrop-blur-xl">
+      <div className="absolute left-1/2 top-1/2 z-20 flex h-24 w-24 sm:h-36 sm:w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-brand/40 bg-brand/15 shadow-[0_0_70px_rgba(92,96,245,0.36)] backdrop-blur-xl">
         <div className="absolute inset-3 rounded-full border border-white/10" />
         <div className="absolute inset-0 rounded-full animate-avatar-pulse" />
         <div className="text-center">
-          <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-white text-[20px] shadow-lg">🏥</div>
-          <div className="font-[family-name:var(--font-bricolage)] text-sm font-black text-white">Patient Plan</div>
-          <div className="mt-1 text-[10px] font-bold uppercase tracking-widest text-white/45">AI hub</div>
+          <div className="mx-auto mb-1 sm:mb-2 flex h-9 w-9 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white text-[14px] sm:text-[20px] shadow-lg">🏥</div>
+          <div className="font-[family-name:var(--font-bricolage)] text-[11px] sm:text-sm font-black text-white">Patient Plan</div>
+          <div className="mt-0.5 text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-white/45">AI hub</div>
         </div>
       </div>
 
@@ -147,15 +147,15 @@ function FamilyCareNetwork() {
           style={{ left: `${node.x}%`, top: `${node.y}%` }}
         >
           <div
-            className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/40 text-white shadow-[0_18px_50px_rgba(0,0,0,0.25)] transition-all duration-300 group-hover:scale-110"
+            className="relative flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full border-2 border-white/40 text-white shadow-[0_18px_50px_rgba(0,0,0,0.25)] transition-all duration-300 group-hover:scale-110"
             style={{ background: `linear-gradient(135deg,${node.color},#5c60f5)` }}
           >
-            <span className="absolute inset-[-8px] rounded-full opacity-30 blur-md" style={{ backgroundColor: node.color }} />
-            <span className="relative font-[family-name:var(--font-bricolage)] text-lg font-black">{node.initials}</span>
+            <span className="absolute inset-[-6px] sm:inset-[-8px] rounded-full opacity-30 blur-md" style={{ backgroundColor: node.color }} />
+            <span className="relative font-[family-name:var(--font-bricolage)] text-sm sm:text-lg font-black">{node.initials}</span>
           </div>
-          <div className="mt-3 min-w-[150px] rounded-2xl border border-white/10 bg-white/[0.075] px-3 py-2 text-center backdrop-blur-xl transition-all duration-300 group-hover:bg-white/[0.12]">
-            <div className="font-[family-name:var(--font-bricolage)] text-[13px] font-black text-white">{node.role}</div>
-            <div className="mt-0.5 text-[10px] leading-snug text-white/45">{node.note}</div>
+          <div className="mt-2 min-w-[90px] sm:min-w-[150px] rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.075] px-2 sm:px-3 py-1.5 sm:py-2 text-center backdrop-blur-xl transition-all duration-300 group-hover:bg-white/[0.12]">
+            <div className="font-[family-name:var(--font-bricolage)] text-[11px] sm:text-[13px] font-black text-white">{node.role}</div>
+            <div className="mt-0.5 text-[9px] sm:text-[10px] leading-snug text-white/45 hidden sm:block">{node.note}</div>
           </div>
         </div>
       ))}

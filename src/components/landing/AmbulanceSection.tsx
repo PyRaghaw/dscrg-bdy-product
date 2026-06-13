@@ -540,7 +540,15 @@ export function AmbulanceSection() {
                       onTouchStart={startHold}
                       onTouchEnd={endHold}
                       onTouchCancel={endHold}
+                      onContextMenu={(e) => e.preventDefault()}
                       disabled={status === 'en_route'}
+                      style={{
+                        touchAction: 'none',
+                        userSelect: 'none',
+                        WebkitUserSelect: 'none',
+                        // @ts-ignore — non-standard but important for iOS Safari
+                        WebkitTouchCallout: 'none',
+                      }}
                       className={cn(
                         "w-20 h-20 rounded-full flex flex-col items-center justify-center select-none cursor-pointer transition-all duration-200 shadow-md",
                         status === 'en_route'

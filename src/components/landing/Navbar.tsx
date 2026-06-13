@@ -40,8 +40,8 @@ export function Navbar({ hasBar = true }: { hasBar?: boolean }) {
       <div
         className={`mx-auto transition-all duration-500 ${
           scrolled
-            ? 'max-w-[1120px] mt-3 px-2 rounded-[999px] bg-white/94 backdrop-blur-2xl border border-black/[0.08] shadow-[0_8px_40px_rgba(0,0,0,0.08)]'
-            : 'max-w-[1200px] px-5 md:px-12'
+            ? 'max-w-[1120px] mt-3 mx-3 sm:mx-auto px-0 rounded-[999px] bg-white/94 backdrop-blur-2xl border border-black/[0.08] shadow-[0_8px_40px_rgba(0,0,0,0.08)]'
+            : 'max-w-[1200px] px-4 sm:px-5 md:px-12'
         }`}
       >
         <div className={`flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? 'h-[58px] px-4' : 'h-[68px]'}`}>
