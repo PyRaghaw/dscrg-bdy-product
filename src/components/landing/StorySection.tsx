@@ -100,7 +100,7 @@ export function StorySection() {
                 <>
                   From prescription to
                   <br />
-                  <span className="text-brand">full recovery</span> — in five steps.
+                  <span className="text-brand">full recovery</span> in five steps.
                 </>
               }
               subtitle="Scroll the flow. The hospital paperwork becomes a real app plan, then the phone mockups move through scan, medicine list, roadmap, Mr. Meddy support, and SOS emergency assistance."

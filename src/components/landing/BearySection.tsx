@@ -89,7 +89,7 @@ export function BearySection() {
                   style={{ background: 'linear-gradient(90deg,#4338ca,#5c60f5,#7c3aed)', backgroundSize: '200% auto', animation: 'fill-bar 1.8s cubic-bezier(0.16,1,0.3,1) 0.8s both, shimmer 3s linear infinite' }}
                 />
               </div>
-              <div className="text-[11px] text-gray-400 mt-2 font-medium tracking-wide">720 / 1000 XP — Level 5 soon ✨</div>
+              <div className="text-[11px] text-gray-400 mt-2 font-medium tracking-wide">720 / 1000 XP • Level 5 soon ✨</div>
             </div>
           </motion.div>
         </Reveal>

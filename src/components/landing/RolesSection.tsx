@@ -195,7 +195,7 @@ export function RolesSection() {
                 in the <span className="gradient-text">care circle.</span>
               </>
             }
-            subtitle="One platform. Three distinct experiences. Each role gets exactly the tools they need — and nothing they don't."
+            subtitle="One platform. Three distinct experiences. Each role gets exactly the tools they need, and nothing they don't."
           />
         </Reveal>
 

@@ -146,7 +146,7 @@ export function Hero() {
             className="text-[clamp(16px,1.5vw,20px)] text-slate-700 leading-[1.7] font-medium mb-10 max-w-[500px] max-lg:mx-auto"
           >
             VAni turns confusing hospital paperwork into a clear,
-            AI-monitored recovery plan — with smart reminders, real-time family
+            AI-monitored recovery plan with smart reminders, real-time family
             alerts, and a companion that celebrates every win.
           </motion.p>
 

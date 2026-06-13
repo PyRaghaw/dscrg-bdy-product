@@ -27,11 +27,11 @@ export function LandingPage() {
         <ProofStrip />
         <ProblemSection />
         <StorySection />
+        <RolesSection />
         <FeaturesSection />
         <DrugInteractionSection />
         <AISection />
         <BearySection />
-        <RolesSection />
         <AmbulanceSection />
         <TestimonialsSection />
         <CTASection />

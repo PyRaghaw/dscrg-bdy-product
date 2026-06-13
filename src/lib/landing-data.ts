@@ -45,13 +45,13 @@ export const PROBLEM_CARDS = [
     stat: "30%",
     icon: "🏥",
     title: "Readmissions are preventable",
-    desc: "Nearly 1 in 3 patients in India is readmitted within 30 days — not because their condition worsened, but because of missed doses, skipped follow-ups, and zero post-discharge support.",
+    desc: "Nearly 1 in 3 patients in India is readmitted within 30 days, not because their condition worsened, but because of missed doses, skipped follow-ups, and zero post-discharge support.",
   },
   {
     stat: "₹3.5L Cr",
     icon: "💊",
     title: "Non-adherence is a crisis",
-    desc: "India loses an estimated ₹3.5 lakh crore every year to medication non-adherence and poor post-care management. This is not a rounding error — it is a systemic failure we are here to fix.",
+    desc: "India loses an estimated ₹3.5 lakh crore every year to medication non-adherence and poor post-care management. This is not a rounding error; it is a systemic failure we are here to fix.",
   },
 ] as const;
 
@@ -62,7 +62,7 @@ export const STORY_STEPS = [
     label: "Scan",
     title: "Photograph your prescription.\nWe handle the rest.",
     description:
-      "Point your camera at any handwritten or printed prescription. Our AI reads every medicine, dosage, and timing — in seconds. No typing required.",
+      "Point your camera at any handwritten or printed prescription. Our AI reads every medicine, dosage, and timing in seconds. No typing required.",
     bullets: [
       "Works with handwritten & printed prescriptions",
       "Extracts medicine name, dosage, frequency, duration",
@@ -90,7 +90,7 @@ export const STORY_STEPS = [
   {
     number: "3",
     label: "Monitor",
-    title: "Your family stays in the loop — always.",
+    title: "Your family stays in the loop, always.",
     description:
       "Caregivers and family members get a live dashboard showing exactly how recovery is going. If a dose is missed or a symptom logged, the right person is alerted instantly.",
     bullets: [
@@ -107,7 +107,7 @@ export const STORY_STEPS = [
     label: "Recover",
     title: "Recovery that actually feels rewarding.",
     description:
-      "Every dose earns XP. Every streak builds momentum. Beary — your AI recovery mascot — celebrates every milestone alongside you.",
+      "Every dose earns XP. Every streak builds momentum. Beary, your AI recovery mascot, celebrates every milestone alongside you.",
     bullets: [
       "XP, levels, streaks, and daily challenges",
       "Beary mascot evolves as your health improves",
@@ -204,7 +204,7 @@ export const AI_CARDS = [
   {
     icon: "🎙️",
     title: "AI Audio Shift Briefings",
-    desc: "ElevenLabs generates spoken patient summaries for nurses — a complete voice briefing ready at the start of every shift.",
+    desc: "ElevenLabs generates spoken patient summaries for nurses, providing a complete voice briefing ready at the start of every shift.",
   },
   {
     icon: "📊",
@@ -217,7 +217,7 @@ export const AI_CARDS = [
 export const MILESTONES = [
   { icon: "💊", title: "First Dose Taken",   sub: "Your recovery journey begins",          xp: "+10 XP"  },
   { icon: "🔥", title: "7-Day Streak",        sub: "Consistency is your superpower",        xp: "+50 XP"  },
-  { icon: "⭐", title: "Perfect Week",        sub: "100% adherence — Beary evolves!",        xp: "+100 XP" },
+  { icon: "⭐", title: "Perfect Week",        sub: "100% adherence, and Beary evolves!",        xp: "+100 XP" },
   { icon: "🏆", title: "Recovery Complete",   sub: "You made it. Beary is fully grown.",    xp: "+500 XP" },
 ] as const;
 
@@ -229,7 +229,7 @@ export const ROLES = [
     tag: "For Patients",
     name: "Patients",
     headline: "Your complete recovery companion.",
-    desc: "Post-surgery or chronic illness patients recovering at home — with AI support, smart reminders, and Beary always one tap away.",
+    desc: "Post-surgery or chronic illness patients recovering at home, supported by AI, smart reminders, and Beary always one tap away.",
     perks: [
       "Smart dose reminders at the right time",
       "Scan any prescription instantly",
@@ -244,7 +244,7 @@ export const ROLES = [
     tag: "For Family",
     name: "Family & Caregivers",
     headline: "Peace of mind from anywhere.",
-    desc: "Remote family members who need real-time visibility into a loved one's recovery — without calling every hour to check in.",
+    desc: "Remote family members who need real-time visibility into a loved one's recovery, without calling every hour to check in.",
     perks: [
       "Live adherence dashboard",
       "Instant push alerts for missed doses",
@@ -259,7 +259,7 @@ export const ROLES = [
     tag: "For Healthcare Staff",
     name: "Clinical Teams",
     headline: "Discharge plans that actually work.",
-    desc: "Nurses and doctors creating discharge plans and monitoring patient adherence across their entire care panel — at scale.",
+    desc: "Nurses and doctors creating discharge plans and monitoring patient adherence across their entire care panel, at scale.",
     perks: [
       "Create discharge plans via QR code",
       "Multi-patient risk overview",

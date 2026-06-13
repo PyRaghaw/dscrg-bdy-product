@@ -108,7 +108,7 @@ export function GlobePreview() {
         </h2>
 
         <p className="max-w-sm text-neutral-400 text-base md:text-lg leading-relaxed mb-8">
-          Patients, families, and doctors stay connected from discharge to full recovery — no missed alerts, no confusion.
+          Patients, families, and doctors stay connected from discharge to full recovery, ensuring no missed alerts or confusion.
         </p>
 
         <div className="flex gap-3 flex-wrap relative z-30">

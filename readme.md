@@ -1,4 +1,4 @@
-# VANI — AI-Powered Recovery Companion
+# VANI | AI-Powered Recovery Companion
 
 VANI is a premium, high-conversion product landing page built for a state-of-the-art healthcare AI application. It is designed to demonstrate how VANI bridges the critical post-discharge care gap by transforming confusing hospital instructions into interactive, patient-centric recovery plans.
 

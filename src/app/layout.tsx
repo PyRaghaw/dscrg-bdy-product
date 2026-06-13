@@ -16,14 +16,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VAni — AI-Powered Recovery Companion",
+  title: "VAni | AI-Powered Recovery Companion",
   description:
-    "VAni turns your confusing hospital prescription into a clear, AI-monitored recovery plan — with smart reminders, real-time alerts for your family, and Beary keeping you on track.",
+    "VAni turns your confusing hospital prescription into a clear, AI-monitored recovery plan with smart reminders, real-time alerts for your family, and Beary keeping you on track.",
   icons: {
     icon: "/icon.png",
   },
   openGraph: {
-    title: "VAni — AI-Powered Recovery Companion",
+    title: "VAni | AI-Powered Recovery Companion",
     description:
       "Never miss a step in your recovery. Scan prescriptions, auto-schedule medicines, and stay connected with your care circle.",
     type: "website",

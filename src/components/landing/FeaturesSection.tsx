@@ -1055,7 +1055,7 @@ export function FeaturesSection() {
                   <span className="text-brand">Whole-journey recovery.</span>
                 </>
               }
-              subtitle="Every feature was designed around a real patient need — not a boardroom checklist. Nothing is there for show."
+              subtitle="Every feature was designed around a real patient need, not a boardroom checklist. Nothing is there for show."
             />
           </Reveal>
 
