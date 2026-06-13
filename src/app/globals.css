@@ -55,6 +55,13 @@ body {
   font-family: var(--font-dm-sans), sans-serif;
 }
 
+/* Hide default cursor on desktop where blob cursor is active */
+@media (min-width: 768px) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }

@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { AISection }           from './AISection';
 import { AmbulanceSection }    from './AmbulanceSection';
 import { AnnouncementBar } from './AnnouncementBar';
@@ -18,11 +19,16 @@ import { DrugInteractionSection } from './DrugInteractionSection';
 import { ChatbotWidget }        from '@/components/ui/ChatbotWidget';
 import { MeetTheCrew }          from './MeetTheCrew';
 
+// Desktop-only blob cursor – hidden on mobile via CSS (hidden md:block inside component)
+const BlobCursor = dynamic(() => import('@/components/ui/BlobCursor'), { ssr: false });
+
 export function LandingPage() {
   return (
     <>
       <AnnouncementBar />
       <Navbar hasBar />
+      {/* Blob cursor: desktop only (hidden on mobile via hidden md:block) */}
+      <BlobCursor />
       <main>
         <Hero />
         <ProofStrip />
